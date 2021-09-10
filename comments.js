@@ -1,3 +1,10 @@
+function Comments(){
+  let comments_up = $('.box_result').length;
+  let comments_reply = $('.box_reply .result_comment').length;
+  const total_comments = comments_reply + comments_up;
+  return total_comments
+}
+
 function submit_comment(){
     var comment = $('.commentar').val();
     el = document.createElement('li');
@@ -20,6 +27,7 @@ function submit_comment(){
           '</div>';
       document.getElementById('list_comment').prepend(el);
       $('.commentar').val('');
+      renderCountComments();
   }
   
   $(document).ready(function() {
@@ -93,8 +101,13 @@ function submit_comment(){
       $current.closest('li').find('.child_replay').prepend(el);
       $('.comment_replay').val('');
       cancel_reply();
+      renderCountComments()
   }
   
   function cancel_reply(){
       $('.reply_comment').remove();
+  }
+
+  function renderCountComments(){
+    $('.count_comment').html(`${Comments()} Comments`);
   }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="syle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -16,7 +17,7 @@
 			<div class="header_comment">
 				<div class="row">
 					<div class="col-md-6 text-left">
-					  <span class="count_comment">264235 Comments</span>
+					  <span class="count_comment"></span>
 					</div>
 					<div class="col-md-6 text-right">
 					  <span class="sort_title">Sort by</span>
@@ -46,7 +47,7 @@
 							<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
 							<i class="fa fa-caret-down"></i>
 						  </span>
-						  <button onclick="submit_comment()" type="button" value="1">Post</button>
+						  <button class="post-comment" onclick="submit_comment()" type="button" value="1">Post</button>
 						</div>
 					  </div>
 					</div>
@@ -94,7 +95,16 @@
 								</ul>
 							</div>
                             <div class="menu_comment col-md-1">
-                                <i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_q9"></i>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-chevron-circle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li>
+                                            <a class="dropdown-item">test</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
 						</li>
 						
@@ -124,5 +134,7 @@
 			</div>
 		</div>
 	</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+	<script>renderCountComments();</script>
 </body>
 </html>

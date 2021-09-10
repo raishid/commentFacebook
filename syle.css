@@ -108,7 +108,7 @@ body{
     position: relative;
     text-align: center;
   }
-  .box_comment button:hover{
+  .post-comment:hover{
     background-color: #29487d;
     border-color: #29487d;
   }
@@ -176,8 +176,13 @@ body{
   .box_result .result_comment .tools_comment span{
     color: #90949c;
   }
-  .body_comment .show_more{
-    background: #3578e5;
+  
+  .show_more:hover{
+    background-color: #ebedf0;
+  }
+
+  .show_more{
+    background-color: #3578e5;
     border: none;
     box-sizing: border-box;
     color: #fff;
