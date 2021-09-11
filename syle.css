@@ -173,6 +173,9 @@ body{
     cursor: pointer;
     text-decoration: none;
   }
+  .box_result .result_comment .tools_comment a:hover{
+    text-decoration: underline;
+  }
   .box_result .result_comment .tools_comment span{
     color: #90949c;
   }
@@ -196,4 +199,36 @@ body{
     text-align: center;
     vertical-align: middle;
     border-radius: 2px;
+  }
+
+  .submit-reply:hover{
+    cursor: pointer;
+  }
+
+  .cancel:hover{
+    cursor: pointer;
+  }
+
+  .post-comment:hover{
+    cursor: pointer;
+  }
+
+  .titulo-principal{
+    text-align: center;
+  }
+
+  .active{
+    display: block !important;
+  }
+  
+  .item-menu{
+    padding: 0 12px;
+  }
+
+  .item-menu:hover{
+    background-color: #4267b2;
+  }
+
+  .item-menu:hover a{
+    color: white !important;
   }
