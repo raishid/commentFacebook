@@ -25,28 +25,40 @@
 						<option>Newest</option>
 						<option id="oldlist">Oldest</option>
 					  </select>
+					  <div alignh="right" class="_3-8_ _6a _6b" valign="middle"><input type="hidden" autocomplete="off" value="time"><a class="_55pi _2agf _4o_4 _4jy0 _4jy3 _517h _51sy _42ft" aria-haspopup="true" role="button" href="#" style="max-width: 200px;" aria-controls="js_bu" tabindex="0"><span class="_55pe">Oldest</span><span alt="" class="_3-99 _4o_3"><i alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_0dafd9"></i></span></a></div>
 					</div>
 				</div>
 			</div>
 
 			<div class="body_comment">
-				<div class="row">
+				<div class="comment-row">
 					<div class="avatar_comment col-md-1">
 					  <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"/>
 					</div>
 					<div class="px-0 box_comment col-md-11">
 					  <textarea class="commentar" placeholder="Add a comment..."></textarea>
-					  <div class="box_post">
+					  <div class="box_post" style="display: none">
 						<div class="pull-left">
-						  <input type="checkbox" id="post_fb"/>
-						  <label for="post_fb">Also post on Facebook</label>
+							<table cols="1" class="uiGrid _51mz" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>
+											<input type="checkbox" id="post_fb">
+											<label for="post_fb">Also post on Facebook</label>
+										</td>
+									</tr>
+									<tr class="tr-character">
+										<td class="td-character">Write <span class="character-post">6</span> more characters to post to Facebook</td>
+									</tr>	  
+								</tbody>
+							</table>
 						</div>
 						<div class="pull-right">
 						  <span>
 							<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
 							<i class="fa fa-caret-down"></i>
 						  </span>
-						  <button class="post-comment" type="button" value="1">Post</button>
+						  <button class="disabled-b" type="button" disabled value="1">Post</button>
 						</div>
 					  </div>
 					</div>

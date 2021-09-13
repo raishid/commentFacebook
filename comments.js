@@ -93,7 +93,7 @@ function reply_down(){
                         '<i class=\"fa fa-caret-down\"></i>'+
                       '</span>'+
                       '<button class=\"cancel\" type=\"button\">Cancel</button>'+
-                      '<button class=\"submit-reply\" type=\"button\" value=\"1\">Reply</button>'+
+                      '<button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>'+
                     '</div>'+
                   '</div>'+
                 '</div>'+
@@ -141,7 +141,7 @@ function eventReply(){
                                   <i class=\"fa fa-caret-down\"></i>
                                 </span>
                                 <button class=\"cancel\" type=\"button\">Cancel</button>
-                              <button class=\"submit-reply\" type=\"button\" value=\"1\">Reply</button>
+                              <button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>
                               </div>
                             </div>
                           </div>
@@ -241,6 +241,15 @@ function EventMenuFacebook(){
   // menu de comentario 
   $('#list_comment').on('click', '.comment_menu', (e) =>{
     e.preventDefault();
+
+    const menu_before = $('.comment_menu.active');
+    if(menu_before.hasClass('active')){
+      menu_before.removeClass('active');
+      const comment_body = menu_before.closest('.comment-body');
+      comment_body.find('.dropdown-status').css('display', 'none');
+    }
+
+
     const element = $(e.target).parent();
     if($(element).hasClass('active')){
       const element = $(e.target).parent();
@@ -392,6 +401,54 @@ function deleteComment(e){
   }
 }
 
+function focusComment(){
+  $('#fbcomment .commentar').focus( () =>{
+    $('#fbcomment .box_post').removeAttr('style');
+  });
+}
+
+function enableComment(){
+  $('#fbcomment').on('keyup', '.commentar', e =>{
+    const button = $('.disabled-b');
+    button.addClass('post-comment');
+    button.removeClass('disabled-b');
+    button.removeAttr('disabled');
+    const value = $(e.target).val()
+    if(value.length == 0){
+      $('.post-comment').addClass('disabled-b');
+      $('.disabled-b').attr('disabled', '');
+      $('.post-comment').removeClass('post-comment');
+    }
+    minCharacter();
+    
+  });
+
+  $('#list_comment').on('keyup', '.commentar', e =>{
+    const button = $('.disabled-b');
+    button.addClass('submit-reply');
+    button.removeClass('disabled-b');
+    button.removeAttr('disabled');
+    const value = $(e.target).val()
+    if(value.length == 0){
+      $('.submit-reply').addClass('disabled-b');
+      $('.disabled-b').attr('disabled', '');
+      $('.submit-reply').removeClass('submit-reply');
+    }
+  });
+}
+
+function minCharacter(){
+  const character_write = $('.commentar').val().length;
+    if(character_write >= 6){
+      $('.tr-character').css('display', 'none');
+    }else{
+      $('.tr-character').removeAttr('style');
+      const count_character = 6 -character_write;
+      $('.character-post').html(count_character);
+    }
+}
+
+
 $(() => {
   // menu
   EventMenuFacebook();
@@ -435,7 +492,7 @@ $(() => {
   });
 
   //postear event
-  $('.post-comment').on('click', () =>{
+  $('#fbcomment').on('click', '.post-comment', () =>{
     submit_comment()
   });
 
@@ -443,6 +500,12 @@ $(() => {
   $('.sort_by').change( e =>{
     $('#list_comment').append($('.box_result').detach().get().reverse());
   });
+
+  //posteando textarea
+  focusComment();
+  enableComment();
+  minCharacter();
+
 
   $('.body_comment').on('click', '.show_more', e =>{
     e.preventDefault();

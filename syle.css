@@ -96,18 +96,24 @@ body{
   color: #90949c;
   line-height: 22px;
 }
-.box_comment button{
-  margin-left:8px;
+.box_comment .post-comment, .submit-reply{
+  margin-left: 2px;
   background-color: #4267b2;
   border: 1px solid #4267b2;
   color: #fff;
   text-decoration: none;
   line-height: 22px;
-  border-radius: 2px;
-  font-size: 14px;
-  font-weight: bold;
-  position: relative;
   text-align: center;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  justify-content: center;
+  padding: 0 8px;
+  position: relative;
+  text-shadow: none;
+  vertical-align: middle;
 }
 .cancel-edit{
   background-color: #f5f6f7 !important;
@@ -122,21 +128,26 @@ body{
   border-color: #29487d;
 }
 .box_comment .cancel{
-    margin-left:8px;
-    background-color: #f5f6f7;
-    color: #4b4f56;
-    text-decoration: none;
-    line-height: 22px;
-    border-radius: 2px;
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-    text-align: center;
-  border-color: #ccd0d5;
+  margin-left: 4px;
+  background-color: #f5f6f7;
+  border: 1px solid#ccd0d5;
+  color: #4b4f56;
+  text-decoration: none;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  justify-content: center;
+  padding: 0 8px;
+  position: relative;
+  text-shadow: none;
+  vertical-align: middle;
 }
 .box_comment .cancel:hover{
-    background-color: #d0d0d0;
-    border-color: #ccd0d5;
+  background-color: #ebedf0;
 }
 .box_comment img{
   height:16px;
@@ -248,4 +259,39 @@ body{
 
 .show_more{
   cursor: pointer;
+}
+
+.comment-row{
+  margin-right: -30px;
+  margin-left: -30px;
+}
+.disabled-b{
+  background-color: #9cb4d8;
+  border-color: #9cb4d8;
+  color: #fff;
+  text-decoration: none;
+  line-height: 22px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  white-space: normal;
+  border: 1px solid;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  justify-content: center;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  text-shadow: none;
+  vertical-align: middle;
+}
+.td-character{
+  font-size: 11px;
+  line-height: 1px;
+  padding: 3px;
 }
