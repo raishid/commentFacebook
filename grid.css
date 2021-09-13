@@ -145,11 +145,11 @@ position: relative;
 position: absolute;
 }
 
-.result_comment:hover .actions{
+.comment-body:hover .actions{
   display: block;
 }
 
-.result_comment .actions{
+.comment-body .actions{
   display: none;
   position: absolute;
   right: 2rem;
@@ -184,7 +184,6 @@ position: absolute;
 }
 
 .dropdown-status .status li a{
-  border: solid #fff;
   color: #1d2129;
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
@@ -201,4 +200,13 @@ position: absolute;
 
 .sp_kf5oT7e76uM.sx_b0af5b {
   background-position: -17px -1991px;
+}
+
+img.sp_kf5oT7e76uM.sx_b0af5b{
+  background-image: url('./assets/img/status_icon.png');
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
 }

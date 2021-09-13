@@ -16,15 +16,14 @@
 		<div class="col-md-12" id="fbcomment">
 			<div class="header_comment">
 				<div class="row">
-					<div class="col-md-6 text-left">
+					<div class="text-left col-md-6">
 					  <span class="count_comment"></span>
 					</div>
-					<div class="col-md-6 text-right">
+					<div class="text-right col-md-6">
 					  <span class="sort_title">Sort by</span>
 					  <select class="sort_by">
-						<option>Top</option>
 						<option>Newest</option>
-						<option>Oldest</option>
+						<option id="oldlist">Oldest</option>
 					  </select>
 					</div>
 				</div>
@@ -35,7 +34,7 @@
 					<div class="avatar_comment col-md-1">
 					  <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"/>
 					</div>
-					<div class="box_comment col-md-11 px-0">
+					<div class="px-0 box_comment col-md-11">
 					  <textarea class="commentar" placeholder="Add a comment..."></textarea>
 					  <div class="box_post">
 						<div class="pull-left">
@@ -60,17 +59,54 @@
 								<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"/>
 							</div>
 							<div class="result_comment col-md-11">
-								<h4>Nath Ryuzaki</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-								<div class="tools_comment">
-									<a class="like" href="#">Like</a>
-									<span aria-hidden="true"> · </span>
-									<a class="replay" href="#">Reply</a>
-									<span aria-hidden="true"> · </span>
-									<span><i class="_3-8_ _4iy4 img sp_kf5oT7e76uM sx_7e6187" alt="" data-visualcompletion="css-img"></i>8</span>
-									<i class="fa fa-thumbs-o-up"></i> <span class="count">1</span> 
-									<span aria-hidden="true"> · </span>
-									<span>26m</span>
+								<div class="comment-body principal">
+									<h4>Nath Ryuzaki</h4>
+									<p class="comment-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+									<span class="collapse">This comment is collapsed. <a class="uncollapse" href="#">Undo</a></span>
+									<div class="tools_comment">
+										<a class="like" href="#">Like</a>
+										<span aria-hidden="true"> · </span>
+										<a class="first replay" href="#">Reply</a>
+										<span aria-hidden="true"> · </span>
+										<span><i class="_3-8_ _4iy4 img sp_kf5oT7e76uM sx_7e6187" alt="" data-visualcompletion="css-img"></i><span class="count">1</span></span>
+										<span aria-hidden="true"> · </span>
+										<span>26m</span>
+									</div>
+									<a href="#" class="actions comment_menu">
+										<i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_6sy"></i>
+									</a>
+									<div class="dropdown-status">
+										<ul class="status">
+											<li class="item-menu">
+												<a class="to-collapse">
+													<span>
+														Collapse comment
+													</span>
+												</a>
+											</li>
+											<li class="item-menu">
+												<a class="to-spam">
+													<span>
+														Mark as spam
+													</span>
+												</a>
+											</li>
+											<li class="item-menu">
+												<a>
+													<span>
+														Report to Facebook
+													</span>
+												</a>
+											</li>
+											<li class="item-menu">
+												<a class="to-embed">
+													<span>
+														Embed
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
                             
 								<ul class="child_replay">
@@ -79,147 +115,117 @@
 											<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"/>
 										</div>
 										 <div class="result_comment col-md-11">
-											<h4>Sugito</h4>
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-											<div class="tools_comment">
-												<a class="like" href="#">Like</a>
-												<span aria-hidden="true"> · </span>
-												<a class="replay" href="#">Reply</a>
-												<span aria-hidden="true"> · </span>
-												<i class="fa fa-thumbs-o-up"></i> <span class="count">1</span> 
-												<span aria-hidden="true"> · </span>
-												<span>26m</span>
-											</div>
-											<ul class="child_replay"></ul>
-											<a href="#" class="actions comment_menu">
-												<i class="fas fa-chevron-circle-down"></i>
-											</a>
-											<div class="dropdown-status">
-												<ul class="status">
-												<li class="item-menu">
-													<a>
-														<span>
-															Collapse comment
-														</span>
-													</a>
-												</li>
-												<li class="item-menu">
-													<a>
-														<span>
-															Mark as spam
-														</span>
-													</a>
-												</li>
-												<li class="item-menu">
-													<a>
-														<span>
-															Report to Facebook
-														</span>
-													</a>
-												</li>
-												<li class="item-menu">
-													<a>
-														<span>
-															Embed
-														</span>
-													</a>
-												</li>
-												</ul>
+											<div class="comment-body">
+												<h4>Sugito</h4>
+												<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+												<div class="tools_comment">
+													<a class="like" href="#">Like</a>
+													<span aria-hidden="true"> · </span>
+													<a class="replay-r" href="#">Reply</a>
+													<span aria-hidden="true"> · </span>
+													<span><i class="_3-8_ _4iy4 img sp_kf5oT7e76uM sx_7e6187" alt="" data-visualcompletion="css-img"></i><span class="count">1</span></span>
+													<span aria-hidden="true"> · </span>
+													<span>26m</span>
+												</div>
+												<ul class="child_replay"></ul>
+												<a href="#" class="actions comment_menu">
+													<i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_6sy"></i>
+												</a>
+												<div class="dropdown-status">
+													<ul class="status">
+														<li class="item-menu">
+															<a class="to-collapse">
+																<span>
+																	Collapse comment
+																</span>
+															</a>
+														</li>
+														<li class="item-menu">
+															<a class="to-spam">
+																<span>
+																	Mark as spam
+																</span>
+															</a>
+														</li>
+														<li class="item-menu">
+															<a>
+																<span>
+																	Report to Facebook
+																</span>
+															</a>
+														</li>
+														<li class="item-menu">
+															<a class="to-embed">
+																<span>
+																	Embed
+																</span>
+															</a>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
 									</li>
 								</ul>
-								<a href="#" class="actions comment_menu">
-									<i class="fas fa-chevron-circle-down"></i>
-								</a>
-								<div class="dropdown-status">
-									<ul class="status">
-										<li class="item-menu">
-											<a>
-												<span>
-													Collapse comment
-												</span>
-											</a>
-										</li>
-										<li class="item-menu">
-											<a>
-												<span>
-													Mark as spam
-												</span>
-											</a>
-										</li>
-										<li class="item-menu">
-											<a>
-												<span>
-													Report to Facebook
-												</span>
-											</a>
-										</li>
-										<li class="item-menu">
-											<a>
-												<span>
-													Embed
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
 							</div>
 						</li>
 						
 						<!-- Start List Comment 2 -->
-						<li class="box_result row relative">
+						<li class="relative box_result row">
 							<div class="avatar_comment col-md-1">
 								<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"/>
 							</div>
 							<div class="result_comment col-md-11">
-								<h4>Gung Wah</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-								<div class="tools_comment">
-									<a class="like" href="#">Like</a>
-									<span aria-hidden="true"> · </span>
-									<a class="replay" href="#">Reply</a>
-									<span aria-hidden="true"> · </span>
-									<i class="fa fa-thumbs-o-up"></i> <span class="count">1</span> 
-									<span aria-hidden="true"> · </span>
-									<span>26m</span>
+							<div class="comment-body principal">
+									<h4>Nath Ryuzaki</h4>
+									<p class="comment-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+									<span class="collapse">This comment is collapsed. <a class="uncollapse" href="#">Undo</a></span>
+									<div class="tools_comment">
+										<a class="like" href="#">Like</a>
+										<span aria-hidden="true"> · </span>
+										<a class="first replay" href="#">Reply</a>
+										<span aria-hidden="true"> · </span>
+										<span><i class="_3-8_ _4iy4 img sp_kf5oT7e76uM sx_7e6187" alt="" data-visualcompletion="css-img"></i><span class="count">1</span></span>
+										<span aria-hidden="true"> · </span>
+										<span>26m</span>
+									</div>
+									<a href="#" class="actions comment_menu">
+										<i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_6sy"></i>
+									</a>
+									<div class="dropdown-status">
+										<ul class="status">
+											<li class="item-menu">
+												<a class="to-collapse">
+													<span>
+														Collapse comment
+													</span>
+												</a>
+											</li>
+											<li class="item-menu">
+												<a class="to-spam">
+													<span>
+														Mark as spam
+													</span>
+												</a>
+											</li>
+											<li class="item-menu">
+												<a>
+													<span>
+														Report to Facebook
+													</span>
+												</a>
+											</li>
+											<li class="item-menu">
+												<a class="to-embed">
+													<span>
+														Embed
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
 								<ul class="child_replay"></ul>
-								<a href="#" class="actions comment_menu">
-									<i class="fas fa-chevron-circle-down"></i>
-								</a>
-								<div class="dropdown-status">
-									<ul class="status">
-										<li class="item-menu">
-											<a>
-												<span>
-													Collapse comment
-												</span>
-											</a>
-										</li>
-										<li class="item-menu">
-											<a>
-												<span>
-													Mark as spam
-												</span>
-											</a>
-										</li>
-										<li class="item-menu">
-											<a>
-												<span>
-													Report to Facebook
-												</span>
-											</a>
-										</li>
-										<li class="item-menu">
-											<a>
-												<span>
-													Embed
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
 							</div>
 						</li>
 					</ul>
