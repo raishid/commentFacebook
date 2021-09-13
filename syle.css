@@ -245,3 +245,7 @@ body{
 .collapse{
   display: none;
 }
+
+.show_more{
+  cursor: pointer;
+}

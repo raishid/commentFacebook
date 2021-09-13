@@ -63,6 +63,18 @@ function submit_comment(){
 function reply_down(){
   $('#list_comment').on('click', '.replay-r', e =>{
     e.preventDefault();
+    const reply_anterior = $('.reply-container');
+    const div_comentario = reply_anterior.closest('.result_comment').find('.comment-body');
+    const replay_a = $(div_comentario).find('.replay-active');
+    replay_a.removeClass('replay-active');
+    const is_principal = div_comentario.hasClass('principal');
+    if(is_principal){
+      replay_a.addClass('replay');
+    }else{
+      replay_a.addClass('replay-r');
+    }
+    reply_anterior.remove();
+
     current = e.target.closest('.comment-body');
     el = document.createElement('li');
     el.className = "box_reply row reply-container";
@@ -100,6 +112,18 @@ function reply_down(){
 function eventReply(){
   $('#list_comment').on('click', '.replay', e =>{
     e.preventDefault();
+    const reply_anterior = $('.reply-container');
+    const div_comentario = reply_anterior.closest('.result_comment').find('.comment-body');
+    const replay_a = $(div_comentario).find('.replay-active');
+    replay_a.removeClass('replay-active');
+    const is_principal = div_comentario.hasClass('principal');
+    if(is_principal){
+      replay_a.addClass('replay');
+    }else{
+      replay_a.addClass('replay-r');
+    }
+    reply_anterior.remove();
+
     $(e.target).removeClass('replay');
     $(e.target).addClass('replay-active');
     const element = $(e.target.closest('.comment-body')).next();
@@ -158,6 +182,7 @@ function submit_reply(e, r_r=true, current='replay-r'){
         '<a class=\"'+active+'\" href=\"#\">Reply</a><span aria-hidden=\"true\"> · </span>'+
         '<span><i class="_3-8_ _4iy4 img sp_kf5oT7e76uM sx_7e6187" alt="" data-visualcompletion="css-img"></i><span class="count">0</span></span>s'+
         '</div>'+
+        '<ul class="child_replay"></ul>'+
         '<a href="#" class="actions comment_menu">'+
         '<i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_6sy"></i>'+
         '</a>'+
@@ -186,7 +211,6 @@ function submit_reply(e, r_r=true, current='replay-r'){
           '</ul>'+
           '</div>'+
         '</div>'+
-        '<ul class="child_replay"></ul>'+
         '</div>';
 
   $(element).append(ele);
@@ -339,19 +363,19 @@ function editComment(e, new_comment=null){
 function likes(){
   $('#list_comment').on('click', '.like', e => {
     e.preventDefault();
-    $current = $(this);
-    var x = $current.closest('div').find('.like').text().trim();
-    var y = parseInt($current.closest('div').find('.count').text().trim());
+    $current = e.target;
+    var x = $($current).closest('div').find('.like').text().trim();
+    var y = parseInt($($current).closest('div').find('.count').text().trim());
     
     if (x === "Like") {
-        $current.closest('div').find('.like').text('Unlike');
-        $current.closest('div').find('.count').text(y + 1);
+        $($current).closest('div').find('.like').text('Unlike');
+        $($current).closest('div').find('.count').text(y + 1);
     } else if (x === "Unlike"){
-        $current.closest('div').find('.like').text('Like');
-        $current.closest('div').find('.count').text(y - 1);
+        $($current).closest('div').find('.like').text('Like');
+        $($current).closest('div').find('.count').text(y - 1);
     } else {
-        var replay = $current.closest('div').find('.like').text('Like');
-        $current.closest('div').find('.count').text(y - 1);
+        var replay = $($current).closest('div').find('.like').text('Like');
+        $($current).closest('div').find('.count').text(y - 1);
     }
   });
 }
@@ -418,6 +442,12 @@ $(() => {
   //oldlist
   $('.sort_by').change( e =>{
     $('#list_comment').append($('.box_result').detach().get().reverse());
+  });
+
+  $('.body_comment').on('click', '.show_more', e =>{
+    e.preventDefault();
+    const current = e.target;
+    $(current).html('Cargando...');
   });
 
   

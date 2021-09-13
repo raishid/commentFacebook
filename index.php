@@ -229,7 +229,9 @@
 							</div>
 						</li>
 					</ul>
-				<button class="show_more" type="button">Load 10 more comments</button>
+				<div class="container-show">
+					<button class="show_more" type="button">Load 10 more comments</button>
+				</div>
 				</div>
 			</div>
 		</div>
