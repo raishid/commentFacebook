@@ -1,4 +1,4 @@
-var order_post = $('')
+
 
 function Comments(){
   let comments_up = $('.box_result').length;
@@ -80,27 +80,46 @@ function reply_down(){
     current = e.target.closest('.comment-body');
     el = document.createElement('li');
     el.className = "box_reply row reply-container";
-    el.innerHTML =
-        '<div class=\"col-md-12 reply_comment\">'+
-            '<div class=\"row\">'+
-                '<div class=\"avatar_comment col-md-1\">'+
-                  '<img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\"/>'+
-                '</div>'+
-                '<div class=\"box_comment col-md-10 px-0\">'+
-                  '<textarea class=\"comment_replay\" placeholder=\"Add a comment...\"></textarea>'+
-                  '<div class=\"box_post\">'+
-                    '<div class=\"pull-right\">'+
-                      '<span>'+
-                        '<img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\" />'+
-                        '<i class=\"fa fa-caret-down\"></i>'+
-                      '</span>'+
-                      '<button class=\"cancel\" type=\"button\">Cancel</button>'+
-                      '<button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>'+
-                    '</div>'+
-                  '</div>'+
-                '</div>'+
-            '</div>'+
-        '</div>';
+    el.innerHTML = `<div class=\"col-md-12 reply_comment\">
+                    <div class=\"row\">
+                        <div class=\"avatar_comment col-md-1\">
+                          <img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\"/>
+                        </div>
+                        <div class=\"box_comment col-md-10 px-0\">
+                        <textarea class=\"comment_replay\" placeholder=\"Add a comment...\"></textarea>
+                        <div class="box_post flex items-center justify-end">
+                        <div class="flex relative box-reply">
+                          <div class="user tooltip">
+                            <a href="#">
+                              <span class="tooltip-you">Commenting as Anonymous</span>
+                              <span alt="" class="_-xe _3-9_">
+                                <span>
+                                  <img class="_6vg img" height="16" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="16" alt="">
+                                </span>
+                              </span>
+                              <span alt="" class="_4o_3">
+                                <i class="fa fa-caret-down"></i>
+                              </span>
+                            </a>
+                          </div>
+                          <div class="isYou-reply">
+                            <div class="flex items-center">
+                              <div class="avatar">
+                                <img class="_4-rj img" height="30" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="30" alt="">
+                              </div>
+                              <div class="name">
+                                Eres tu 
+                                <span class="_uyb">(You)</span>
+                                <div class="_55fc"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <button class=\"cancel\" type=\"button\">Cancel</button>
+                          <button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>`
     $(current).find('.child_replay').first().append(el);
 
     cancel_reply('replay-r');
@@ -136,17 +155,37 @@ function eventReply(){
                           </div>
                           <div class=\"box_comment col-md-10 px-0\">
                           <textarea class=\"comment_replay\" placeholder=\"Add a comment...\"></textarea>
-                            <div class=\"box_post\">
-                            <div class=\"pull-right\">
-                                <span>
-                                  <img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\" />
-                                  <i class=\"fa fa-caret-down\"></i>
+                          <div class="box_post flex items-center justify-end">
+                          <div class="flex relative box-reply">
+                            <div class="user tooltip">
+                              <a href="#">
+                                <span class="tooltip-you">Commenting as Anonymous</span>
+                                <span alt="" class="_-xe _3-9_">
+                                  <span>
+                                    <img class="_6vg img" height="16" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="16" alt="">
+                                  </span>
                                 </span>
-                                <button class=\"cancel\" type=\"button\">Cancel</button>
-                              <button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>
+                                <span alt="" class="_4o_3">
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+                            </div>
+                            <div class="isYou-reply">
+                              <div class="flex items-center">
+                                <div class="avatar">
+                                  <img class="_4-rj img" height="30" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="30" alt="">
+                                </div>
+                                <div class="name">
+                                  Eres tu 
+                                  <span class="_uyb">(You)</span>
+                                  <div class="_55fc"></div>
+                                </div>
                               </div>
                             </div>
+                            <button class=\"cancel\" type=\"button\">Cancel</button>
+                            <button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>
                           </div>
+                        </div>
                       </div>
                   </div></li>`);
     
@@ -303,19 +342,19 @@ function unCollapse(){
 function renderEditComment(e){
   const element = e.target.closest('.result_comment');
   const last_content = $(element).find('.comment-content').text();
-  $(element).html(`<div class="px-0 box_comment col-md-11">
-              <textarea class="edit-content"></textarea>
-              <div class="box_post">
-              <div class="pull-right">
-                <span>
-                <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar">
-                <i class="fa fa-caret-down"></i>
-                </span>
-                <button class="cancel-edit" type="button" value="2">Cancel</button>
-                <button class="edit-comment" type="button" value="1">Save</button>
-              </div>
-              </div>
-            </div>`);
+  $(element).html(`<div class=\"col-md-12 reply_comment\">
+  <div class=\"row\">
+      <div class=\"box_comment col-md-10 px-0\">
+      <textarea class=\"edit-content\" placeholder=\"Add a comment...\"></textarea>
+      <div class="box_post flex items-center justify-end">
+      <div class="flex relative box-reply">
+        <button class="cancel-edit" type="button" value="2">Cancel</button>
+        <button class="edit-comment" type="button" value="1">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+`);
   $('.edit-content').val(last_content);
   $('.edit-content').focus();
   $('.cancel-edit').on('click', e =>{
@@ -441,14 +480,22 @@ function enableComment(){
 }
 
 function minCharacter(){
-  const character_write = $('.commentar').val().length;
-    if(character_write >= 6){
-      $('.tr-character').css('display', 'none');
-    }else{
-      $('.tr-character').removeAttr('style');
-      const count_character = 6 -character_write;
-      $('.character-post').html(count_character);
+  $('#fbcomment').on('change', '#post_fb', e =>{
+    const checkbox = $('.tr-character').css('display');
+    if(checkbox == 'none'){
+      $('.tr-character').css('display', 'block')
+      const character_write = $('.commentar').val().length;
+      if(character_write >= 6){
+        $('.tr-character').css('display', 'none');
+      }else{
+          $('.tr-character').removeAttr('style');
+          const count_character = 6 - character_write;
+          $('.character-post').html(count_character);
+        }
+    }else if(!e.target.checked){
+        $('.tr-character').removeAttr('style');
     }
+  });
 }
 
 function showMore(){
@@ -462,24 +509,32 @@ function showMore(){
 }
 
 function menuOrder(){
-  $('#fbcomment').on('click', '.select-item', '.select-item span', e =>{
-    e.preventDefault();
-    $('.order-item-active').removeClass('order-item-active');
-    let value;
+  const promise = new Promise((res, reject) => {
+    res(true);
+  });
+  promise.then(() =>{
+    $('#fbcomment').on('click', '.select-item', '.select-item span', e =>{
+      e.preventDefault();
+      $('.order-item-active').removeClass('order-item-active');
+      let value;
+      if($(e.target).hasClass('select-item')){
+        const current = $(e.target);
+        current.addClass('order-item-active');
+        value = current.find('span').html();
+      }else{
+        const current = $(e.target).closest('.select-item')
+        current.addClass('order-item-active');
+        value = $(e.target).html();
+      }
 
-    if($(e.target).hasClass('select-item')){
-      const current = $(e.target);
-      current.addClass('order-item-active');
-      value = current.find('span').html();
-    }else{
-      const current = $(e.target).closest('.select-item')
-      current.addClass('order-item-active');
-      value = $(e.target).html();
-    }
+      $('.dropdown_button').html(`${value}<span alt="" class="_3-99 _4o_3"><i alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_0dafd9"></i></span>`);
+      $('.dropdown_button').css('background', 'white');
+      $('.dropdown_content').css('display', 'none');
+    });
+  });
 
-    $('.dropdown_button').html(`${value}<span alt="" class="_3-99 _4o_3"><i alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_0dafd9"></i></span>`);
-    $('.dropdown_button').css('background', 'white');
-    $('.dropdown_content').css('display', 'none');
+  promise.then( () =>{
+    sort();
   });
 }
 
@@ -488,6 +543,34 @@ function openSortBy(){
     $('.dropdown_content').css('display', 'block');
   });
 }
+
+function sort(){
+  $('#fbcomment').on('click', '#ordest', '#ordest > span', (e) =>{
+    if(order == 'newlest'){
+      $('#list_comment').append($('.box_result').detach().get().reverse());
+      order = 'ordest';
+    }
+  });
+  $('#fbcomment').on('click', '#newlest', '#newlest > span', (e) =>{
+    if(order == 'ordest'){
+      $('#list_comment').append($('.box_result').detach().get().reverse());
+      order = 'newlest';
+    }
+  });
+}
+
+function profile(){
+  $('#fbcomment').on('click', '.profile', e =>{
+    e.preventDefault();
+    let isyou = $('.isYou');
+    if(isyou.css('display') === 'none'){
+      isyou.css('display', 'block');
+    }else if(isyou.css('display') === 'block'){
+      isyou.css('display', 'none');
+    }
+  });
+}
+
 
 
 $(() => {
@@ -543,14 +626,18 @@ $(() => {
   //oldlist
   openSortBy();
   menuOrder();
-  $('.sort_by').change( e =>{
-    $('#list_comment').append($('.box_result').detach().get().reverse());
-  });
+
 
   //posteando textarea
   focusComment();
   enableComment();
   minCharacter();
+
+  //chekbobx
+  activeCharacter();
+
+  //profile
+  profile();
 
 
   $('.body_comment').on('click', '.show_more', e =>{
@@ -558,6 +645,4 @@ $(() => {
     const current = e.target;
     $(current).html('Cargando...');
   });
-
-  
 });

@@ -145,6 +145,9 @@ width: 16px;
 margin-right: 4px;
 padding-top: 7px;
 }
+._3-9_ {
+  margin-right: 4px;
+}
 
 ._4iy4 {
 bottom: -2px;
@@ -240,10 +243,10 @@ position: absolute;
   font-size: 12px;
   padding: 2px 0px;
   border-radius: 5px;
-  left: -23px;
+  left: -18px;
   right: 0;
   bottom: 35px;
-  width: 20vh;
+  width: 8vh;
 }
 
 .tooltip-box::after {
@@ -415,19 +418,19 @@ position: absolute;
 .isYou{
   position: absolute;
   background-color: #f5f7f8;
-    border: 0;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px rgb(0 0 0 / 10%), 0 1px 10px rgb(0 0 0 / 35%);
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 10%), 0 1px 10px rgb(0 0 0 / 35%);
   border: 1px solid rgba(0, 0, 0, .15);
   border-radius: 3px;
   box-shadow: 0 3px 8px rgb(0 0 0 / 30%);
-  /* display: none; */
+  display: none;
   cursor: pointer;
   padding: 8px 10px;
   transition: background-color .1s ease-out;
   margin: 0;
   top: 26px;
-    right: 40px;
+  right: 40px;
   color: #5b5c5e;
   z-index: 9999;
   width: 294px;
@@ -438,11 +441,32 @@ position: absolute;
     color: #fff;
 }
 
-.isYou .avatar{
-  /* width: 294px; */
+.isYou-reply{
+  position: absolute;
+  background-color: #f5f7f8;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 10%), 0 1px 10px rgb(0 0 0 / 35%);
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 3px;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 30%);
+  display: none;
+  cursor: pointer;
+  padding: 8px 10px;
+  transition: background-color .1s ease-out;
+  margin: 0;
+  top: 26px;
+  right: 120px;
+  color: #5b5c5e;
+  z-index: 9999;
+  width: 294px;
 }
 
-.isYou .name{
+.isYou-reply:hover{
+  background-color: #0454a3;
+    color: #fff;
+}
+.isYou .name, .isYou-reply .name{
   margin-left: 4px;
   position: relative;
   font-weight: bold;
@@ -484,4 +508,8 @@ position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 16px;
+}
+
+.tr-character{
+  display: none;
 }

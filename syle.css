@@ -92,7 +92,7 @@ body{
   color: #90949c;
   line-height: 22px;
 }
-.box_comment .post-comment, .submit-reply{
+.box_comment .post-comment, .submit-reply, .edit-comment{
   margin-left: 2px;
   background-color: #4267b2;
   border: 1px solid #4267b2;
@@ -106,14 +106,13 @@ body{
   -webkit-font-smoothing: antialiased;
   font-weight: bold;
   justify-content: center;
-  padding: 0 8px;
+  padding: 0 10px;
   position: relative;
   text-shadow: none;
   vertical-align: middle;
+  font-weight: 1000;
 }
 .cancel-edit{
-  background-color: #f5f6f7 !important;
-  color: #4b4f56 !important;
   cursor: pointer;
 }
 .edit-comment{
@@ -122,6 +121,25 @@ body{
 .post-comment:hover{
   background-color: #29487d;
   border-color: #29487d;
+}
+.cancel-edit{
+  margin-left: 4px;
+  background-color: #f5f6f7;
+  border: 1px solid#ccd0d5;
+  color: #4b4f56;
+  text-decoration: none;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  justify-content: center;
+  padding: 0 8px;
+  position: relative;
+  text-shadow: none;
+  vertical-align: middle;
 }
 .box_comment .cancel{
   margin-left: 4px;
@@ -205,7 +223,7 @@ body{
   box-sizing: border-box;
   color: #fff;
   font-size: 14px;
-  margin-top: 24px;
+  margin-top: 30px;
   padding: 12px;
   text-shadow: none;
   width: 100%;
@@ -269,7 +287,7 @@ body{
   line-height: 22px;
   border-radius: 2px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 1000;
   position: relative;
   text-align: center;
   white-space: normal;
@@ -278,13 +296,13 @@ body{
   box-sizing: content-box;
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
-  font-weight: bold;
   justify-content: center;
-  padding: 0 8px;
+  padding: 0 10px;
   position: relative;
   text-align: center;
   text-shadow: none;
   vertical-align: middle;
+  margin-left: 4px;
 }
 .td-character{
   font-size: 11px;
@@ -378,7 +396,7 @@ body{
   left: -78px;
   right: 0;
   bottom: 35px;
-  width: 60vh;
+  width: 30vh;
 }
 
 .tooltip-you:hover{
@@ -398,4 +416,11 @@ body{
 
 .tooltip:hover .tooltip-you {
 	display: inline-block;
+}
+.justify-end{
+  justify-content: flex-end;
+}
+
+.box-reply{
+  height: 24px;
 }

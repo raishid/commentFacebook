@@ -25,10 +25,10 @@
 						<span class="sort_title">Sort by</span>
 						
 						<div class="dropdown" id="dropdown">
-							<label for="drop1" class="dropdown_button">Newest<span alt="" class="_3-99 _4o_3"><i alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_0dafd9"></i></span></label>
+							<label for="drop1" class="dropdown_button">Oldest<span alt="" class="_3-99 _4o_3"><i alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_0dafd9"></i></span></label>
 							<ul class="dropdown_content">
-								<li><a class="select-item" href="#"><span>Newest</span></a></li>
-								<li><a class="select-item" href="#"><span>Oldest</span></a></li>
+								<li><a class="select-item" href="#" id="newlest"><span>Newest</span></a></li>
+								<li><a class="select-item order-item-active" href="#" id="ordest"><span>Oldest</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -60,7 +60,7 @@
 							</div>
 							<div class="flex relative">
 								<div class="user tooltip">
-									<a href="#">
+									<a href="#" class="profile">
 										<span class="tooltip-you">Commenting as Anonymous</span>
 										<span alt="" class="_-xe _3-8_">
 											<span>
@@ -383,6 +383,7 @@
 			</div>
 		</div>
 	</div>
+	<script>var order = 'ordest';</script>
 </body>
 
 </html>
