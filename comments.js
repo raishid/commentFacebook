@@ -1,3 +1,4 @@
+var index_menu; 
 
 function Comments(){
   let comments_up = $('.box_result').length;
@@ -242,15 +243,19 @@ function EventMenuFacebook(){
   $('#list_comment').on('click', '.comment_menu', (e) =>{
     e.preventDefault();
 
-    const menu_before = $('.comment_menu.active');
-    if(menu_before.hasClass('active')){
+    /* if(menu_before && menu_before.hasClass('active')){
       menu_before.removeClass('active');
       const comment_body = menu_before.closest('.comment-body');
       comment_body.find('.dropdown-status').css('display', 'none');
-    }
-
+    } */
 
     const element = $(e.target).parent();
+    if(index_menu){
+      console.log(element == index_menu);
+    }else{
+      index_menu = element;
+      console.log('no existe');
+    }
     if($(element).hasClass('active')){
       const element = $(e.target).parent();
       element.removeClass('active');
@@ -259,8 +264,17 @@ function EventMenuFacebook(){
     }else{
       element.addClass('active');
       const list_menu = $(element).next();
-      list_menu.toggle();
+      list_menu.toggle(); 
     }
+
+
+    console.log(element);
+    /* if(menu_before.length == 2){
+      const before = $(menu_before[0]).parent().find('.dropdown-status');
+      before.css('display', 'none');
+      menu_before[0].classList.remove('active');
+    }
+ */
   });
 }
 
