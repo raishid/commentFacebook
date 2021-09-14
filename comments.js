@@ -1,4 +1,4 @@
-var index_menu; 
+var order_post = $('')
 
 function Comments(){
   let comments_up = $('.box_result').length;
@@ -25,8 +25,9 @@ function submit_comment(){
             '<a class=\"first replay\" href=\"#\">Reply</a><span aria-hidden=\"true\"> · </span>'+
             '<span><i class="_3-8_ _4iy4 img sp_kf5oT7e76uM sx_7e6187" alt="" data-visualcompletion="css-img"></i><span class="count">0</span></span>s'+
             '</div>'+
-            '<a href="#" class="actions comment_menu">'+
-              '<i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_6sy"></i>'+
+            '<a href="#" class="actions comment_menu tooltip">'+
+            '<span class="tooltip-box">Menu</span>'+
+            '<i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_6sy"></i>'+
             '</a>'+
             '<div class="dropdown-status">'+
               '<ul class="status">'+
@@ -184,7 +185,8 @@ function submit_reply(e, r_r=true, current='replay-r'){
         '<span><i class="_3-8_ _4iy4 img sp_kf5oT7e76uM sx_7e6187" alt="" data-visualcompletion="css-img"></i><span class="count">0</span></span>s'+
         '</div>'+
         '<ul class="child_replay"></ul>'+
-        '<a href="#" class="actions comment_menu">'+
+        '<a href="#" class="actions comment_menu tooltip">'+
+        '<span class="tooltip-box">Menu</span>'+
         '<i data-tooltip-content="Menu" data-hover="tooltip" alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_b0af5b" id="js_6sy"></i>'+
         '</a>'+
         '<div class="dropdown-status">'+
@@ -238,43 +240,30 @@ function renderCountComments(){
   $('.count_comment').html(`${Comments()} Comments`);
 }
 
+var previos;
 function EventMenuFacebook(){
   // menu de comentario 
   $('#list_comment').on('click', '.comment_menu', (e) =>{
     e.preventDefault();
 
-    /* if(menu_before && menu_before.hasClass('active')){
+    const menu_before = $('.comment_menu.active');
+    if(menu_before && menu_before.hasClass('active')){
+      const current_menu = $(e.target).parent()
+      if(!current_menu.hasClass('active')){
+        current_menu.addClass('active');
+        const list_menu = $(current_menu).next();
+        list_menu.toggle(); 
+      }
       menu_before.removeClass('active');
       const comment_body = menu_before.closest('.comment-body');
       comment_body.find('.dropdown-status').css('display', 'none');
-    } */
-
-    const element = $(e.target).parent();
-    if(index_menu){
-      console.log(element == index_menu);
     }else{
-      index_menu = element;
-      console.log('no existe');
-    }
-    if($(element).hasClass('active')){
       const element = $(e.target).parent();
-      element.removeClass('active');
-      const list_menu = $(element).next();
-      list_menu.css('display', 'none');
-    }else{
       element.addClass('active');
       const list_menu = $(element).next();
       list_menu.toggle(); 
     }
-
-
-    console.log(element);
-    /* if(menu_before.length == 2){
-      const before = $(menu_before[0]).parent().find('.dropdown-status');
-      before.css('display', 'none');
-      menu_before[0].classList.remove('active');
-    }
- */
+    
   });
 }
 
@@ -437,7 +426,7 @@ function enableComment(){
     
   });
 
-  $('#list_comment').on('keyup', '.commentar', e =>{
+  $('#list_comment').on('keyup', '.comment_replay', e =>{
     const button = $('.disabled-b');
     button.addClass('submit-reply');
     button.removeClass('disabled-b');
@@ -460,6 +449,44 @@ function minCharacter(){
       const count_character = 6 -character_write;
       $('.character-post').html(count_character);
     }
+}
+
+function showMore(){
+  $('#list_comment').on('click', '.more-link', e =>{
+    e.preventDefault();
+    const div_showmore = $(e.target).parent();
+    div_showmore.css('display', 'none');
+    const progress_bar = $(div_showmore).next();
+    progress_bar.css('display', 'block');
+  });
+}
+
+function menuOrder(){
+  $('#fbcomment').on('click', '.select-item', '.select-item span', e =>{
+    e.preventDefault();
+    $('.order-item-active').removeClass('order-item-active');
+    let value;
+
+    if($(e.target).hasClass('select-item')){
+      const current = $(e.target);
+      current.addClass('order-item-active');
+      value = current.find('span').html();
+    }else{
+      const current = $(e.target).closest('.select-item')
+      current.addClass('order-item-active');
+      value = $(e.target).html();
+    }
+
+    $('.dropdown_button').html(`${value}<span alt="" class="_3-99 _4o_3"><i alt="" data-visualcompletion="css-img" class="img sp_kf5oT7e76uM sx_0dafd9"></i></span>`);
+    $('.dropdown_button').css('background', 'white');
+    $('.dropdown_content').css('display', 'none');
+  });
+}
+
+function openSortBy(){
+  $('#fbcomment').on('click', '.dropdown_button', () =>{
+    $('.dropdown_content').css('display', 'block');
+  });
 }
 
 
@@ -492,6 +519,9 @@ $(() => {
   //likes
   likes();
 
+  //show more
+  showMore();
+
   //edit
   $('#list_comment').on('click', '.to-edit', e =>{
     renderEditComment(e);
@@ -511,6 +541,8 @@ $(() => {
   });
 
   //oldlist
+  openSortBy();
+  menuOrder();
   $('.sort_by').change( e =>{
     $('#list_comment').append($('.box_result').detach().get().reverse());
   });

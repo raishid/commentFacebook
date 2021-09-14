@@ -17,7 +17,6 @@ body{
 }
 .header_comment{
     font-size: 14px;
-    overflow: hidden;
     border-bottom: 1px solid #e9ebee;
     line-height: 25px;
     margin-bottom: 24px;
@@ -46,7 +45,6 @@ body{
 .body_comment{
     padding: 0 8px;
     font-size: 14px;
-    display: block;
     line-height: 25px;
     word-break: break-word;
 }
@@ -86,8 +84,6 @@ body{
     border-top: 1px solid #d3d6db;
     background: #f5f6f7;
     padding: 8px;
-    display: block;
-    overflow: hidden;
 }
 .box_comment label{
   display: inline-block;
@@ -149,7 +145,7 @@ body{
 .box_comment .cancel:hover{
   background-color: #ebedf0;
 }
-.box_comment img{
+.box_comment > img{
   height:16px;
   width:16px;
 }
@@ -294,4 +290,112 @@ body{
   font-size: 11px;
   line-height: 1px;
   padding: 3px;
+}
+
+.show-more.box{
+  padding: 15px; 
+  margin-left: 15px
+}
+.more-link{
+  color: #385898;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}
+.sp_kf5oT7e76uM.sx_2f3bff {
+  background-position: -68px -1889px;
+}
+
+@keyframes rotateSpinner{
+  0%{
+    transform:rotate(0deg)
+  }
+  100%
+  {transform:rotate(360deg)
+  }
+}
+
+._55yn._55yo {
+  background-image: url('./assets/img/progress.png');
+  height: 12px;
+  width: 12px;
+}
+
+._55ym{
+  animation: rotateSpinner 1.2s steps(20, end) infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+._5yct {
+  background-color: #f5f6f7;
+  color: #365899;
+}
+
+._56q9 {
+  font-size: 14px;
+  line-height: 1.358;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.progress-bar{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: -50px;
+  display: none;
+}
+
+
+@media (max-width: 780px) {
+  .progress-bar{
+    margin-left: -10px;
+  }
+}
+
+.order-item-active{
+  background: url(./assets/img/select.png) left 5px no-repeat;
+  font-weight: bold;
+}
+.select-item span{
+  margin-left: 13px;
+}
+
+.tooltip-you{
+  display: none;
+  position: absolute;
+  background: #000;
+  line-height: 20px;
+  z-index: 500;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 0px;
+  border-radius: 5px;
+  left: -78px;
+  right: 0;
+  bottom: 35px;
+  width: 60vh;
+}
+
+.tooltip-you:hover{
+  display: inline-block;
+}
+
+.tooltip-you::after {
+	content: "";
+	display: block;
+	border-top: 7px solid #000;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	position: absolute;
+	bottom: -7px;
+	left: calc(50% - 7px);
+}
+
+.tooltip:hover .tooltip-you {
+	display: inline-block;
 }
