@@ -17,11 +17,11 @@
 	<div class="container">
 		<div class="col-md-12" id="fbcomment">
 			<div class="header_comment">
-				<div class="row">
-					<div class="text-left col-md-6">
+				<div class="row flex row-sm">
+					<div class="text-left col-md-6 flex-start pl-0">
 						<span class="count_comment"></span>
 					</div>
-					<div class="text-right col-md-6">
+					<div class="text-right col-md-6 flex-start pl-0 ml-auto pr-0 ">
 						<span class="sort_title">Sort by</span>
 						
 						<div class="dropdown" id="dropdown">
@@ -37,7 +37,7 @@
 
 			<div class="body_comment">
 				<div class="comment-row">
-					<div class="avatar_comment col-md-1">
+					<div class="avatar_comment col-md-1 avatar-post">
 						<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
 					</div>
 					<div class="px-0 box_comment col-md-11">
@@ -55,11 +55,23 @@
 										<tr class="tr-character">
 											<td class="td-character">Write <span class="character-post">6</span> more characters to post to Facebook</td>
 										</tr>
+										<tr class="lh-32">
+											<td>
+												<div class="_3-95 user-mobile">
+													<span class="_1y5f _2pih  _2ieq">
+														Commenting as
+													</span>
+													<select class="_1y5g">
+														<option class="user-option" value="">Anonymous</option>
+													</select>
+												</div>
+											</td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
 							<div class="flex relative">
-								<div class="user tooltip">
+								<div class="user tooltip user-desktop">
 									<a href="#" class="profile">
 										<span class="tooltip-you">Commenting as Anonymous</span>
 										<span alt="" class="_-xe _3-8_">
@@ -90,9 +102,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<ul id="list_comment" class="col-md-12">
+					<ul id="list_comment" class="col-md-12 sm-lh">
 						<!-- Start List Comment 1 -->
-						<li class="box_result row">
+						<li class="box_result row sm-flex">
 							<div class="avatar_comment col-md-1">
 								<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
 							</div>
@@ -149,7 +161,7 @@
 								</div>
 
 								<ul class="child_replay">
-									<li class="box_reply row">
+									<li class="box_reply row sm-flex mr-0">
 										<div class="avatar_comment col-md-1">
 											<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
 										</div>
@@ -211,7 +223,7 @@
 						</li>
 
 						<!-- Start List Comment 2 -->
-						<li class="relative box_result row">
+						<li class="relative box_result row sm-flex">
 							<div class="avatar_comment col-md-1">
 								<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar">
 							</div>
@@ -267,7 +279,7 @@
 									</div>
 								</div>
 								<ul class="child_replay">
-									<li class="box_reply row">
+									<li class="box_reply row sm-flex mr-0">
 										<div class="avatar_comment col-md-1">
 											<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar">
 										</div>
@@ -291,7 +303,7 @@
 											</div>
 										</div>
 									</li>
-									<li class="box_reply row">
+									<li class="box_reply row sm-flex mr-0">
 										<div class="avatar_comment col-md-1"><img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"></div>
 										<div class="result_comment col-md-11">
 											<div class="comment-body">
@@ -314,7 +326,7 @@
 											</div>
 										</div>
 									</li>
-									<li class="box_reply row">
+									<li class="box_reply row sm-flex mr-0">
 										<div class="avatar_comment col-md-1"><img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"></div>
 										<div class="result_comment col-md-11">
 											<div class="comment-body">
@@ -337,7 +349,7 @@
 											</div>
 										</div>
 									</li>
-									<li class="box_reply row">
+									<li class="box_reply row sm-flex mr-0">
 										<div class="avatar_comment col-md-1"><img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"></div>
 										<div class="result_comment col-md-11">
 											<div class="comment-body">
@@ -376,7 +388,7 @@
 						</li>
 						
 					</ul>
-					<div class="container-show">
+					<div class="container-show mt-15">
 						<button class="show_more" type="button">Load 10 more comments</button>
 					</div>
 				</div>

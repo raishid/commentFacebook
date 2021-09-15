@@ -44,6 +44,121 @@ body{
   margin-right: auto;
   margin-left: auto;
 }
+
+.user-mobile{
+  display: none;
+}
+
+.box-mobile{
+  display: none;
+}
+.lh-32{
+  line-height: 32px;
+}
+
+.mt-15{
+  margin-top: 15px;
+}
+
+.post-facebook{
+  display: none;
+}
+.flex-column{
+  flex-direction: column;
+}
+.align-item-start{
+  align-items: flex-start;
+}
+.align-self-end{
+  align-self: flex-end;
+}
+.mt-0{
+  margin-top: 0px !important;
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .comment_menu{
+    display: none;
+  }
+  .avatar-post{
+    display: none;
+  }
+  .disabled-b {
+    background-color: #9cb4d8;
+    border-color: #9cb4d8;
+    color: #fff;
+    text-decoration: none;
+    line-height: 22px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 1000;
+    position: relative;
+    text-align: center;
+    white-space: normal;
+    border: 1px solid;
+    border-radius: 2px;
+    box-sizing: content-box;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    justify-content: center;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+  .user-desktop{
+    display: none;
+  }
+  .user-mobile{
+    font-size: 12px;
+    display: block;
+  }
+  .user-option{
+    background:#1877F2;
+  }
+  
+  .box-mobile{
+    display: block;
+  }
+  .flex-start{
+    justify-content: flex-start;
+  }
+  .ml-auto{
+    margin-left: auto;
+  }
+  #dropdown{
+    margin-top: 0px;
+  }
+  .pl-0{
+    padding-left: 0px !important;
+  }
+  .pr-0{
+    padding-right: 0px !important;
+  }
+  .sm-flex{
+    display: flex;
+  }
+  .mr-0{
+    margin-right: 0px !important;
+  }
+  .ml-0{
+    margin-left: 0px !important;
+  }
+  .sm-lh{
+    line-height: 1.358;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -53,10 +168,17 @@ body{
   .container {
     width: 970px;
   }
+  .avatar-post{
+    display: 'block';
+  }
+  
 }
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
+  }
+  .avatar-post{
+    display: 'block';
   }
 }
 
@@ -243,10 +365,10 @@ position: absolute;
   font-size: 12px;
   padding: 2px 0px;
   border-radius: 5px;
-  left: -18px;
+  left: -17px;
   right: 0;
   bottom: 35px;
-  width: 8vh;
+  width: 5vh;
 }
 
 .tooltip-box::after {

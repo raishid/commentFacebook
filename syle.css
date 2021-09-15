@@ -393,10 +393,10 @@ body{
   font-size: 12px;
   padding: 2px 0px;
   border-radius: 5px;
-  left: -78px;
+  left: -70px;
   right: 0;
   bottom: 35px;
-  width: 30vh;
+  width: 20vh;
 }
 
 .tooltip-you:hover{

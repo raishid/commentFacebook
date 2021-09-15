@@ -10,9 +10,9 @@ function Comments(){
 function submit_comment(){
     var comment = $('.commentar').val();
     el = document.createElement('li');
-    el.className = "box_result row";
+    el.className = "box_result row sm-flex";
     el.innerHTML =
-          '<div class=\"avatar_comment col-md-1\">'+
+          '<div class=\"avatar_comment col-md-1 \">'+
             '<img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\"/>'+
           '</div>'+
           '<div class=\"result_comment col-md-11\">'+
@@ -77,46 +77,76 @@ function reply_down(){
     }
     reply_anterior.remove();
 
-    current = e.target.closest('.comment-body');
+    current = e.target.closest('.box_result');
+    const name = $(e.target).closest('.comment-body').find('h4').text()
     el = document.createElement('li');
     el.className = "box_reply row reply-container";
     el.innerHTML = `<div class=\"col-md-12 reply_comment\">
                     <div class=\"row\">
-                        <div class=\"avatar_comment col-md-1\">
+                        <div class=\"avatar_comment col-md-1 avatar-post\">
                           <img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\"/>
                         </div>
                         <div class=\"box_comment col-md-10 px-0\">
-                        <textarea class=\"comment_replay\" placeholder=\"Add a comment...\"></textarea>
-                        <div class="box_post flex items-center justify-end">
-                        <div class="flex relative box-reply">
-                          <div class="user tooltip">
-                            <a href="#">
-                              <span class="tooltip-you">Commenting as Anonymous</span>
-                              <span alt="" class="_-xe _3-9_">
-                                <span>
-                                  <img class="_6vg img" height="16" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="16" alt="">
-                                </span>
-                              </span>
-                              <span alt="" class="_4o_3">
-                                <i class="fa fa-caret-down"></i>
-                              </span>
-                            </a>
+                        <textarea class=\"comment_replay\" placeholder=\"Add a comment...\">${name}</textarea>
+                        <div class="box_post flex items-center justify-between flex-column">
+                          <div class="">
+                            <table cols="1" class="uiGrid _51mz" cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr class="post-facebook">
+                                  <td>
+                                    <input type="checkbox" id="post_fb">
+                                    <label for="post_fb">Also post on Facebook</label>
+                                  </td>
+                                </tr>
+                                <tr class="tr-character" style="display: none;">
+                                  <td class="td-character">Write <span class="character-post">-1</span> more characters to post to Facebook</td>
+                                </tr>
+                                <tr class="lh-32">
+                                  <td>
+                                    <div class="_3-95 user-mobile">
+                                      <span class="_1y5f _2pih  _2ieq">
+                                        Commenting as
+                                      </span>
+                                      <select class="_1y5g">
+                                        <option class="user-option" value="">Anonymous</option>
+                                      </select>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </div>
-                          <div class="isYou-reply">
-                            <div class="flex items-center">
-                              <div class="avatar">
-                                <img class="_4-rj img" height="30" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="30" alt="">
-                              </div>
-                              <div class="name">
-                                Eres tu 
-                                <span class="_uyb">(You)</span>
-                                <div class="_55fc"></div>
+                          <div class="flex relative align-item-start align-self-end">
+                            <div class="user tooltip user-desktop">
+                              <a href="#" class="profile">
+                                <span class="tooltip-you">Commenting as Anonymous</span>
+                                <span alt="" class="_-xe _3-8_">
+                                  <span>
+                                    <img class="_6vg img" height="16" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="16" alt="">
+                                  </span>
+                                </span>
+                                <span alt="" class="_4o_3">
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+                            </div>
+                            <div class="isYou" style="display: none;">
+                              <div class="flex items-center">
+                                <div class="avatar">
+                                  <img class="_4-rj img" height="30" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="30" alt="">
+                                </div>
+                                <div class="name">
+                                  Eres tu 
+                                  <span class="_uyb">(You)</span>
+                                  <div class="_55fc"></div>
+                                </div>
                               </div>
                             </div>
+                            <button class=\"cancel mt-0\" type=\"button\">Cancel</button>
+                            <button class=\"disabled-b mt-0\" type=\"button\" disabled value=\"1\">Reply</button>
                           </div>
-                          <button class=\"cancel\" type=\"button\">Cancel</button>
-                          <button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>
                         </div>
+
                       </div>
                     </div>
                 </div>`
@@ -149,45 +179,74 @@ function eventReply(){
     $(e.target).addClass('replay-active');
     const element = $(e.target.closest('.comment-body')).next();
     $(element).append(`<li class="box_reply row reply-container"><div class=\"col-md-12 reply_comment\">
-                      <div class=\"row\">
-                          <div class=\"avatar_comment col-md-1\">
-                            <img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\"/>
-                          </div>
-                          <div class=\"box_comment col-md-10 px-0\">
-                          <textarea class=\"comment_replay\" placeholder=\"Add a comment...\"></textarea>
-                          <div class="box_post flex items-center justify-end">
-                          <div class="flex relative box-reply">
-                            <div class="user tooltip">
-                              <a href="#">
-                                <span class="tooltip-you">Commenting as Anonymous</span>
-                                <span alt="" class="_-xe _3-9_">
-                                  <span>
-                                    <img class="_6vg img" height="16" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="16" alt="">
-                                  </span>
-                                </span>
-                                <span alt="" class="_4o_3">
-                                  <i class="fa fa-caret-down"></i>
-                                </span>
-                              </a>
-                            </div>
-                            <div class="isYou-reply">
-                              <div class="flex items-center">
-                                <div class="avatar">
-                                  <img class="_4-rj img" height="30" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="30" alt="">
-                                </div>
-                                <div class="name">
-                                  Eres tu 
-                                  <span class="_uyb">(You)</span>
-                                  <div class="_55fc"></div>
-                                </div>
-                              </div>
-                            </div>
-                            <button class=\"cancel\" type=\"button\">Cancel</button>
-                            <button class=\"disabled-b\" type=\"button\" disabled value=\"1\">Reply</button>
-                          </div>
-                        </div>
-                      </div>
-                  </div></li>`);
+    <div class=\"row\">
+        <div class=\"avatar_comment col-md-1 avatar-post\">
+          <img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\"/>
+        </div>
+        <div class=\"box_comment col-md-10 px-0\">
+        <textarea class=\"comment_replay\" placeholder=\"Add a comment...\">${name}</textarea>
+        <div class="box_post flex items-center justify-between flex-column">
+          <div class="">
+            <table cols="1" class="uiGrid _51mz" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="post-facebook">
+                  <td>
+                    <input type="checkbox" id="post_fb">
+                    <label for="post_fb">Also post on Facebook</label>
+                  </td>
+                </tr>
+                <tr class="tr-character" style="display: none;">
+                  <td class="td-character">Write <span class="character-post">-1</span> more characters to post to Facebook</td>
+                </tr>
+                <tr class="lh-32">
+                  <td>
+                    <div class="_3-95 user-mobile">
+                      <span class="_1y5f _2pih  _2ieq">
+                        Commenting as
+                      </span>
+                      <select class="_1y5g">
+                        <option class="user-option" value="">Anonymous</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex relative align-item-start align-self-end mt-0">
+            <div class="user tooltip user-desktop">
+              <a href="#" class="profile">
+                <span class="tooltip-you">Commenting as Anonymous</span>
+                <span alt="" class="_-xe _3-8_">
+                  <span>
+                    <img class="_6vg img" height="16" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="16" alt="">
+                  </span>
+                </span>
+                <span alt="" class="_4o_3">
+                  <i class="fa fa-caret-down"></i>
+                </span>
+              </a>
+            </div>
+            <div class="isYou" style="display: none;">
+              <div class="flex items-center">
+                <div class="avatar">
+                  <img class="_4-rj img" height="30" src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" width="30" alt="">
+                </div>
+                <div class="name">
+                  Eres tu 
+                  <span class="_uyb">(You)</span>
+                  <div class="_55fc"></div>
+                </div>
+              </div>
+            </div>
+            <button class=\"cancel mt-0\" type=\"button\">Cancel</button>
+            <button class=\"disabled-b mt-0\" type=\"button\" disabled value=\"1\">Reply</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div></li>`);
     
     cancel_reply('replay');           
   });
@@ -209,6 +268,9 @@ function submit_reply(e, r_r=true, current='replay-r'){
   let ele = document.createElement('li');
   ele.classList.add('box_reply');
   ele.classList.add('row');
+  ele.classList.add('sm-flex');
+  ele.classList.add('mr-0');
+
   ele.innerHTML =
         '<div class=\"avatar_comment col-md-1\">'+
           '<img src=\"https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg\" alt=\"avatar\"/>'+
@@ -480,22 +542,35 @@ function enableComment(){
 }
 
 function minCharacter(){
-  $('#fbcomment').on('change', '#post_fb', e =>{
+  let character_write;
+  $('#fbcomment #post_fb').on('click', e =>{
     const checkbox = $('.tr-character').css('display');
-    if(checkbox == 'none'){
-      $('.tr-character').css('display', 'block')
-      const character_write = $('.commentar').val().length;
-      if(character_write >= 6){
-        $('.tr-character').css('display', 'none');
-      }else{
-          $('.tr-character').removeAttr('style');
-          const count_character = 6 - character_write;
-          $('.character-post').html(count_character);
-        }
-    }else if(!e.target.checked){
-        $('.tr-character').removeAttr('style');
+    if(checkbox == 'none' && $('.commentar').val().length <= 6){
+      $('.tr-character').css('display', 'block');
+    }else if(checkbox == 'block'){
+      console.log(checkbox, !e.target.checked);
+      if(!e.target.checked){
+        $('.tr-character').css('display', 'none')
+      }
+    }
+    
+  });
+
+  $('#fbcomment').on('keyup', '.commentar', e =>{
+    const writer = $('.commentar').val().length;
+    const count_character = 6 - writer;
+    $('.character-post').html(count_character);
+    character_write = $('.commentar').val().length;
+    if(character_write >= 6){
+      $('.tr-character').css('display', 'none');
+    }else{
+      const check = document.getElementById('post_fb');
+      if(check.checked){
+        $('.tr-character').css('display', 'block');  
+      }
     }
   });
+
 }
 
 function showMore(){
@@ -632,9 +707,6 @@ $(() => {
   focusComment();
   enableComment();
   minCharacter();
-
-  //chekbobx
-  activeCharacter();
 
   //profile
   profile();
